@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logistics-open-data-spider"
+version = "0.1.0"
+description = "Configurable spiders for logistics, supply-chain, trade, standards, patent, policy and public-opinion open datasets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "aiohttp>=3.9",
+  "beautifulsoup4>=4.12",
+  "lxml>=5.0",
+  "python-slugify>=8.0",
+  "PyYAML>=6.0",
+  "tqdm>=4.66",
+]
+
+[project.scripts]
+logistics-spider = "logistics_open_data_spider.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["logistics_open_data_spider*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
